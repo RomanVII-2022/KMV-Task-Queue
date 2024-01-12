@@ -1,0 +1,45 @@
+version: '3.3'
+services:
+  db:
+    container_name: db_c
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./data/db:/var/bin/postgresql/data
+    ports:
+      - 5432:5432
+  redis_server:
+    container_name: redis_server_c
+    image:  redis
+    restart: always
+    volumes:
+      - ./redis_volume_data:/data
+    ports:
+      - 6379:6379
+  myapp:
+    container_name: myapp_c
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - redis_server
+  celery_worker:
+    container_name: celery_worker_c
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A myproject worker -l INFO
+    volumes:
+      - .:/app
+    depends_on:
+      - myapp
+      - redis_server
