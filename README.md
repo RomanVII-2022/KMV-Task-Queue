@@ -7,3 +7,9 @@
 3. Install all the packages in the requirements.txt file
 
 > pip install -r requirements.txt
+
+4. Ensure you are in the myproject folder
+
+5. Start the project
+
+> python manage.py runserver
