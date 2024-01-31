@@ -13,3 +13,11 @@
 5. Start the project
 
 > python manage.py runserver
+
+6. Run celery worker
+
+> celery -A myproject worker -l INFO
+
+7. Run celery beat
+
+> celery -A myproject beat -l INFO
