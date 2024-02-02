@@ -21,3 +21,9 @@
 7. Run celery beat
 
 > celery -A myproject beat -l INFO
+
+# Run Docker Compose
+1. Ensure you have docker and docker compose installed 
+2. Initialize docker compose
+
+> docker compose up
