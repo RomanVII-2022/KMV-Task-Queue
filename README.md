@@ -27,3 +27,16 @@
 2. Initialize docker compose
 
 > docker compose up
+
+## NB:
+1. Check all docker images
+
+> docker images
+
+2. Check all running docker containers
+
+> docker ps
+
+3. Check all docker containers
+
+> docker ps -a
