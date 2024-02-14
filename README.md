@@ -40,3 +40,5 @@
 3. Check all docker containers
 
 > docker ps -a
+>
+## Note: If you're not running it via docker ensure that you have installed Redis in your server
