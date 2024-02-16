@@ -41,4 +41,4 @@
 
 > docker ps -a
 >
-## Note: If you're not running it via docker ensure that you have installed Redis in your server
+## Note: If you're not running it via docker ensure that you have installed Redis in your server. Also remeber to change the broker url in the settings.py file in the main project directory
